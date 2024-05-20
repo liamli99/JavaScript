@@ -1,3 +1,5 @@
+// https://supersimple.dev/js-basics/
+
 alert('hello');
 alert('Good job!');
 
