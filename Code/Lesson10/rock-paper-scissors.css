@@ -1,0 +1,43 @@
+body {
+    background-color: rgb(25, 25, 25);
+    color: white;
+    font-family: Arial;
+}
+
+.title {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* This is a very good CSS example of wrapping an image inside a button!!! */
+.move-button {
+    background-color: transparent;
+    width: 120px;
+    height: 120px;
+    border: 3px solid white;
+    border-radius: 60px;
+    cursor: pointer;
+
+    margin-right: 10px;
+}
+.move-icon {
+    height: 50px;
+}
+
+.result {
+    font-size: 25px;
+    font-weight: bold;
+
+    margin-top: 50px ;
+}
+.score {
+    margin-top: 60px;
+}
+
+.reset-score-button {
+    background-color: white;
+    border: none;
+    padding: 8px 15px;
+    font-size: 15px;
+    cursor: pointer;
+}

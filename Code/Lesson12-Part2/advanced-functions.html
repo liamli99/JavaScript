@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <button class="js-button">Test</button>
+        <script>
+            // arrow function
+            const arrowFunction = (name) => {
+                console.log(`hello ${name}`);
+            };
+            arrowFunction('Liam');
+
+            // shortcut
+            // One parameter, we can remove the parentheses
+            const oneParam = param => {
+                console.log(param);
+            };
+            oneParam(1);
+
+            // One line, we can remove the brackets and return
+            const oneLine1 = (param) => console.log(param);
+            oneLine1(1);
+            // One line, we can also remove the return keyword
+            const oneLine2 = (param) => param + 1;
+            console.log(oneLine2(1));
+
+            // practice
+            ['1', '2', '3'].forEach((value, index) => {
+                console.log(value);
+                console.log(index);
+            })
+
+            const object = {
+                method1: () => {
+                    console.log('hello');
+                },
+
+                // However, there is a shortcut - shorthand method, we prefer to use this shortcut!
+                method2() {
+                    console.log('hello');
+                }
+            }
+
+            // addEventListener
+            const eventListener = () =>  {
+                console.log('click1');
+            }
+            document.querySelector('.js-button').addEventListener('click', eventListener)
+
+            // add multiple event listeners
+            document.querySelector('.js-button').addEventListener('click', () => {
+                console.log('click2');
+            })
+
+            // remove a event listener
+            document.querySelector('.js-button').removeEventListener('click', eventListener)
+
+            // array filter
+            const array1 = [1, -1, -2, 4];
+            const newArray = array1.filter((value) => {
+                return value > 0;
+            })
+            console.log(array1);
+            console.log(newArray);
+
+            // array map
+            const array2 = [1, 2, 3];
+            const newArray2 = array2.map((value) => {
+                return value * 2;
+            })
+            console.log(array2);
+            console.log(newArray2);
+        </script>
+    </body>
+</html>

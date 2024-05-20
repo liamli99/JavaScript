@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <button class="js-button" onclick="
+            finish();
+        ">Start</button>
+        
+        <script>
+            function finish() {
+                document.querySelector('.js-button').innerHTML = 'Loading...';
+                
+                setTimeout(function() {
+                    document.querySelector('.js-button').innerHTML = 'Finished!';
+                }, 1000);
+            }
+        </script>
+    </body>
+</html>

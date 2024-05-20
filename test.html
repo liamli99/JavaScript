@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <input>
+        <p></p>
+        <script>
+            function update(event) {
+                if (event.key === 'Enter') {
+                    document.querySelector('p').innerHTML = 'You press enter';
+                }
+            }
+            document.querySelector('input').addEventListener('keydown', update);
+        </script>
+    </body>
+</html>

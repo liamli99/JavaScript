@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Buttons</title>
+        <style>
+            .add {
+                background-color: yellow
+            }
+
+            .buy {
+                background-color: orange;
+            }
+        </style>
+    </head>
+    <body>
+        <p>Adults Plain Cotton T-shirt</p>
+        <p>Price: $7.99</p>
+
+        <!-- Note that by default onclick uses double quotes, thus we should use single quote to denote string inside the double quote!!! -->
+        <button class="add" onclick="alert('Added');">Add to cart</button>
+        <button class="buy" onclick="console.log('Loading...'); alert('Purchased');">Buy now</button> 
+    </body>
+</html>

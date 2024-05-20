@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>App</title>
+    </head>
+    <body>
+        <button onclick="
+            message++;
+            start();
+        ">Add</button>
+        
+        <button onclick="
+            if (message > 0) {
+                message--;
+            }
+
+            if (message === 0) {
+                stop();
+            }
+        ">Remove</button>
+    
+        <script>
+            let message = 2;
+            let intervalId;
+
+            start();
+
+            function start() {
+                // Similar to 12f, this is to avoid creating multiple intervals when keep pressing 'Add' button!
+                clearInterval(intervalId);
+
+                intervalId = setInterval(function() {
+                    if (document.title === 'App') {
+                        document.title = `(${message}) New messages`;
+                    } else {
+                        document.title = 'App';
+                    }
+                }, 1000)
+            } 
+    
+
+            function stop() {
+                clearInterval(intervalId);
+                document.title = 'App';
+            }
+        </script>
+    </body>
+</html>

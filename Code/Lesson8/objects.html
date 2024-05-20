@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Objects</title>
+    </head>
+    <body>
+        <script>
+            const product = {
+                name: 'socks',
+                price: 1090
+            };
+
+            console.log(typeof product);
+            // read the property value, dot notation
+            console.log(product.name);
+
+            // Even though product is a const, we can still update its property value or create a new property-value pair, but we cannot re-assign a new value to product!
+
+            // update the property value
+            product.name = 'cotton socks';
+            console.log(product);
+
+            // create a new property-value pair
+            product.newProperty = true;
+            console.log(product);
+
+            // delete a property-value pair
+            delete product.newProperty;
+            console.log(product);
+
+            const product2 = {
+                name: 'shirt',
+                // cannot write delivery-time because of '-'
+                'delivery-time': '1 day',
+                // nested object
+                rating: {
+                    stars: 4.5,
+                    count: 87
+                },
+                // function can also be property value!
+                fun: function function1() {
+                    console.log('hello');
+                }
+            };
+            console.log(product2);
+            console.log(product2.name);
+            // bracket notation
+            console.log(product2['name']);
+            // cannot write console.log(product2.delivery-time) because of '-', thus we have to use bracket notation!
+            console.log(product2['delivery-time']);
+
+            console.log(product2.rating.count);
+
+            // call the funtion!
+            product2.fun();
+            // console.log() is another example! 
+            console.log(typeof console);
+            console.log(typeof console.log);
+
+            // JSON object
+            const jsonString = JSON.stringify(product2);
+            // its data type is string, but represents the JSON format of an object: (1) properties and string values use double quotes (2) no function as property value
+            console.log(jsonString);
+            console.log(typeof jsonString);
+
+            const obj = JSON.parse(jsonString);
+            console.log(obj);
+            console.log(typeof obj);
+
+            // String also has methods! This is because JavaScript has a special feature called auto-boxing that automatically wraps the string in a special object!
+            console.log('hello'.length);
+            console.log('hello'.toUpperCase());
+
+            // Objects are references!
+            const object1 = {
+                message: 'hello'
+            }
+            // copy the reference, they both point to the same value in the computer's memory
+            const object2 = object1;
+
+            // even though we change object1, object2 also changes!
+            console.message = 'good';
+            console.log(object1);
+            console.log(object2);
+
+            // even though object3 has the same value as object1, they just point to different things that have the same value and '===' compare the references!
+            const object3 = {
+                message: 'good'
+            };
+            console.log(object1 === object3);
+            console.log(object2 === object1);
+
+            // shortcut - destructuring
+            const object4 = {
+                message: 'Good job!'
+            };
+            // This is the same as 'const message = object4.message;'
+            const { message } = object4;
+            console.log(message);
+
+            // shortcut - shorthand property
+            const object5 = {
+                // message: message, this works when property is the same as value
+                message
+            };
+            console.log(object5);
+
+            // shortcut - shorthand method
+            const object6 = {
+                // method: function function1() {
+                //     console.log('method');
+                // }
+                method() {
+                    console.log('method');
+                }
+            }
+            object6.method();
+        </script>
+    </body>
+</html>

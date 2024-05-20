@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DOM Projects</title>
+    </head>
+    <body>
+        <p>YouTube Subscribe Button</p>
+        <button onclick="
+            subscribe();
+        " class="js-subscribe-button">Subscribed</button>
+
+        <p>Amazon Shipping Calculator</p>
+        <input class="js-cost-input" placeholder="Cost of order" onkeydown="
+            // if (event.key === 'Enter') {
+            //     calculateTotal();
+            // }
+            // event is provided by onkeydown!
+            handleCostKeydown(event);
+        ">
+        <button onclick="
+            calculateTotal();
+        ">Calculate</button>
+        <p class="js-total-cost"></p>
+
+        <script>
+            function subscribe() {
+                // we cannot write const buttonElement = document.querySelector('.js-subscribe-button').innerHTML!!!
+                const buttonElement = document.querySelector('.js-subscribe-button');
+
+                // Note that only buttonElement is const, so we can still update buttonElement.innerHTML!
+                if (buttonElement.innerHTML === 'Subscribe') {
+                    buttonElement.innerHTML = 'Subscribed';
+                } else {
+                    buttonElement.innerHTML = 'Subscribe';
+                }
+            }
+
+            function calculateTotal() {
+                const inputElement =  document.querySelector('.js-cost-input');
+                let cost = Number(inputElement.value);
+
+                if (cost < 40) {
+                    cost += 10;
+                }
+
+                document.querySelector('.js-total-cost').innerHTML = `${cost}$`;
+            }
+
+            function handleCostKeydown(event) {
+                if (event.key === 'Enter') {
+                    calculateTotal();
+                }
+            }
+        </script>
+    </body>
+</html>

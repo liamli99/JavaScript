@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Booleans</title>
+    </head>
+    <body>
+        <script>
+            // boolean values
+            true
+            false
+
+            console.log(3 > 5);
+            // comparison operators have lower precedence
+            console.log(3 > 5 - 5);
+
+            // always use '==='!
+            console.log(5 == '5');
+            console.log(5 === '5');
+
+            // If-statement
+            if (false) {
+                console.log('hello');
+            } else {
+                console.log('else');
+            }
+
+            const age = 15;
+            if (age >= 16) {
+                console.log('You can drive');
+                console.log('Congrats')
+            } else if (age >= 14) {
+                console.log('Almost there');
+            } else {
+                console.log('You cannot drive');
+            }
+
+            // logical operator
+            console.log(true && false);
+            // if you want to check if a number is inside a range, always use &&!!!
+            console.log(0 <= 0.2 < 1/3);
+            console.log(0.2 >= 0 && 0.2 < 1/3);
+
+            console.log(true || false);
+            console.log(!false);
+
+            // truthy and falsy values
+            if (0) {
+                console.log('truthy');
+            }
+
+            const cartQuantity = 5;
+            // if (cartQuantity > 0), use truthy or falsy values as shortcut!
+            if (cartQuantity) {
+                console.log('cart has products');
+            }
+
+            console.log(!0);
+            // NaN
+            console.log('text' / 5);
+            // undefined
+            let variable1;
+            console.log(variable);
+
+            // shorts for if-statement
+
+            // Tenary operator
+            const result = 4 > 3 ? 'truthy' : 'falsy';
+            console.log(result);
+
+            // Guard operator, short-circuit
+            false && console.log('hello');
+
+            const message = 5 && 'hello';
+            console.log(message);
+
+            // Default operator, short-circuit
+            true || console.log('hello');
+
+            const currency = undefined || 'USD';
+            console.log(currency);
+        </script>
+    </body>
+</html>
