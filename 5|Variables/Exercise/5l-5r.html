@@ -1,28 +1,41 @@
+<!-- https://supersimple.dev/projects/calculator/ -->
+
+<!-- 5l -->
 <!DOCTYPE html>
 <html>
     <head>
         <title>Calculator</title>
     </head>
     <body>
+        <!-- 5r -->
         <p>
+            <!-- 5m -->
             <button onclick="
+                // 5o
                 calculation += '1';
                 console.log(calculation);
             ">1</button>
+            <!-- 5m -->
             <button onclick="
+                // 5p
                 calculation += '2';
                 console.log(calculation);
             ">2</button>
+            <!-- 5m -->
             <button onclick="
+                // 5p
                 calculation += '3';
                 console.log(calculation);
             ">3</button>
+            <!-- 5m -->
             <button onclick="
+                // 5p
                 calculation += ' + ';
                 console.log(calculation);
             ">+</button>
         </p>
 
+        <!-- 5r -->
         <p>
             <button onclick="
                 calculation += '4';
@@ -42,6 +55,7 @@
             ">-</button>
         </p>
 
+        <!-- 5r -->
         <p>
             <button onclick="
                 calculation += '7';
@@ -61,6 +75,7 @@
             ">*</button>
         </p>
 
+        <!-- 5r -->
         <p>
             <button onclick="
                 calculation += '0';
@@ -70,9 +85,10 @@
                 calculation += '.';
                 console.log(calculation);
             ">.</button>
-            <!-- eval() converts string to actual math! -->
+            <!-- 5m -->
             <button onclick="
-                // now calculation is an integer
+                // 5q
+                // eval() converts the calculation string into actual math!!! Now calculation is an integer!
                 calculation = eval(calculation);
                 console.log(calculation);
             ">=</button>
@@ -82,6 +98,7 @@
             ">/</button>
         </p>
 
+        <!-- 5r -->
         <p>
             <button onclick="
                 calculation = '';
@@ -89,6 +106,7 @@
             ">Clear</button>
         </p>
         
+        <!-- 5n -->
         <script>
             let calculation = '';
         </script>

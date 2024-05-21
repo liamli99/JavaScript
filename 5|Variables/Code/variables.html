@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Variables</title>
+    </head>
+    <body>
+        <script>
+            // Use let to create a variable whose value will be changed!
+            let variable1 = 3;
+            console.log(variable1);
+
+            // Use const to create a variable whose value cannot be changed! Always use const by default!!!
+            const calculation = 2 + 2;
+            console.log(calculation);
+            console.log(calculation + 2);
+
+            const result = calculation + 2;
+            console.log(result);
+
+            const message = 'hello';
+            // Semicolon means the end of an instruction, we can write two instructions in the same line as long as we use semicolon between them! If we write one instruction per line, we can choose not to include semicolon because JavaScript automatically inserts semicolon at the end of the line! However, it is still a good practice to mannually insert semicolon at the end of an instruction!
+            console.log(message); console.log(';')
+
+            // Re-assign the value of a variable, don't include let!
+            variable1 = 5;
+            console.log(variable1);
+
+            // variable1++
+            // variable += 1
+            variable1 = variable1 + 1;
+            console.log(variable1);
+
+            // Use var to create a variable whose value can be changed, not recommended because of scope issue! See Scope for more details!
+            var variable3 = 3;
+
+            // Return data type of the value (inside the variable)
+            console.log(typeof variable1);
+            console.log(typeof message);
+        </script>
+    </body>
+</html>

@@ -7,7 +7,7 @@ alert('hello');
 'some' + 'text'
 'some' + 'more' + 'text'
 
-// Data type
+// Return data type of a value
 typeof 2
 typeof 'hello'
 
