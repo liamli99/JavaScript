@@ -1,0 +1,36 @@
+<!-- 4i -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Buttons</title>
+        <style>
+            .add {
+                background-color: yellow
+            }
+
+            .buy {
+                background-color: orange;
+            }
+        </style>
+    </head>
+    <body>
+        <p>Adults Plain Cotton T-shirt</p>
+        <p>Price: $7.99</p>
+
+        <!-- Note that by default onclick uses double quotes, thus we should use single quote to create string inside the double quotes! Single quote string is also recommended by default! -->
+        <button class="add" onclick="
+            // 4j
+            alert('Added');
+        ">
+            Add to cart
+        </button>
+        
+        <button class="buy" onclick="
+            // 4j
+            console.log('Loading...'); 
+            alert('Purchased');
+        ">
+            Buy now
+        </button> 
+    </body>
+</html>
