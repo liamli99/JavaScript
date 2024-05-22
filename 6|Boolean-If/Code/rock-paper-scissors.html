@@ -1,3 +1,5 @@
+<!-- https://supersimple.dev/projects/booleans/ -->
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -5,9 +7,11 @@
     </head>
     <body>
         <p>Rock Paper Scissors</p>
+
         <button onclick="
-            // Math.random() generates a number that is greater than or equal to 0 and less than 1!
+            // Math.random() generates a random number that is greater than or equal to 0 and less than 1!
             const randomNumber = Math.random();
+            // Create these two variables outside {} of if-statement so that we can still access them inside {}! If we create them inside {}, we cannot access them outside {}! This is because of Scope!!!
             let computerMove = '';
             let result = '';
 
