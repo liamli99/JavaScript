@@ -5,26 +5,27 @@
     </head>
     <body>
         <script>
+            // Create an object
+            // Note that it is a common practice to create object with const, we can update/create/delete the property of the object value, but we cannot re-assign a value!!!
             const product = {
+                // property: value
                 name: 'socks',
                 price: 1090
             };
 
-            console.log(typeof product);
-            // read the property value, dot notation
+            console.log(product);
+            // Read the property value, dot notation
             console.log(product.name);
 
-            // Even though product is a const, we can still update its property value or create a new property-value pair, but we cannot re-assign a new value to product!
-
-            // update the property value
+            // Update the property value
             product.name = 'cotton socks';
             console.log(product);
 
-            // create a new property-value pair
+            // Create a new property-value pair
             product.newProperty = true;
             console.log(product);
 
-            // delete a property-value pair
+            // Delete a property-value pair
             delete product.newProperty;
             console.log(product);
 

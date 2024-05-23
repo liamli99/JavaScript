@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Functions</title>
+    </head>
+    <body>
+        <script>
+            // Create the function
+            function function1() {
+                console.log('hello'); // Function Body
+            }
+            function1(); // Call the function (run the code inside)
+
+            // Function can have a return value!
+            function function2() {
+                console.log('1');
+                return 'rock';
+                // Return statement ends the function immediately! Thus the following code doesn't run!
+                console.log('2');
+            }
+            // Run function2() first, thus output '1' to console, then output the return value of function2, which is 'rock', to console!
+            console.log(function2());
+
+            // Function can take parameters, we can set a default value for one parameter
+            function calculateTax(cost, taxPercent = 0.1) {
+                console.log(cost * taxPercent);
+            }
+            // The default value of the parameter can be changed!
+            calculateTax(2000, 0.5);
+            // If we only pass one value to the function, then cost will get that value, taxPercent has a default value 0.1!
+            calculateTax(5000);
+            // If we don't pass any value to the function, then cost will get the value 'undefined'! Since undefined * 0.1 is an invalid math, we get 'NaN' in the console!
+            calculateTax();
+        </script>
+    </body>
+</html>
