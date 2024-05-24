@@ -60,7 +60,7 @@
                 calculation = eval(calculation);
                 console.log(calculation);
 
-                // Note that there is no updateCalculation() here, so we have to manually store it into localStorage
+                // Note that there is no updateCalculation() here, since calculation is updated, we have to manually store it into localStorage!
                 localStorage.setItem('cal', calculation);
             ">=</button>
             <button onclick="
@@ -86,7 +86,7 @@
                 calculation += value;
                 console.log(calculation);
 
-                // localStorage
+                // localStorage, we don't have to use JSON.stringify because calculation is already a string!
                 localStorage.setItem('cal', calculation);
             }
         </script>

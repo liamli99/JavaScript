@@ -3,6 +3,7 @@
     <head></head>
     <body>
         <script>
+            // If we want to check if two objects have the same value, we should manually check their property values one by one!
             function isSameProduct(product1, product2) {
                 if (product1.name === product2.name && product1.price === product2.price) {
                     return true;
@@ -11,7 +12,7 @@
                 }
             }
 
-            // less code
+            // Alternative solution that uses less code
             // function isSameProduct(product1, product2) {
             //     return (
             //         product1.name === product2.name &&

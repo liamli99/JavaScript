@@ -7,7 +7,7 @@
     </head>
     <body>
         <p>Rock Paper Scissors</p>
-        
+
         <button onclick="
             playGame('rock');
         ">Rock</button>
@@ -21,17 +21,23 @@
         ">Scissors</button>
 
         <button onclick="
+            // Reset the score
+            // If we click the Reset button and then close and re-open the page or refresh the page immediately, we can ignore these lines because score is removed from the local storage so that its initialized value is the default value!
+            // If we click the Reset button and then click Rock, Paper, or Scissors button, we have to include these lines because we should reset the value to continue the game!
             score.wins = 0;
             score.losses = 0;
             score.ties = 0;
             
-            // Also remove score from local storage!
+            // Remove score from local storage! 
+            // If we click the Reset button and then close and re-open the page or refresh the page immediately, we have to include this line to remove score from local storage so that its initialized value is the default value instead of the latest value in local storage!
+            // If we click the Reset button and then click Rock, Paper, or Scissors button, we can ignore this line because socre can still be updated and stored into local stoarge!
             localStorage.removeItem('score');
         ">Reset Score</button>
         
         <script>
-            // get the latest score from local storage
-            // if there is no value stored in local storage, it should have a default value!
+            // score should be a global variable!
+            // score should either be retrieved from local storage or have a default value (if doesn't exist in local storage)!
+            // Note that we include '|| default value' because when the page is first loaded, there is nothing in local storage! Also, if we use 'removeItem' and then close and re-open the page or refresh the page, there is also nothing in local storage!      
             const score = JSON.parse(localStorage.getItem('score')) || {
                 wins: 0,
                 losses: 0,
@@ -83,7 +89,7 @@
                     }
                 }
 
-                // update score object
+                // Update score object
                 if (result === 'You win.') {
                     score.wins += 1;
                 } else if (result === 'You lose.') {
@@ -92,13 +98,13 @@
                     score.ties += 1;
                 }
 
-                // store JSON String into local storage, we can access it by using localStorage.getItem('score')! The reason we use JSON.stringify is that localStorage only supports String!
-                // each time we click the button, we save the latest score into local storage
+                // Store score of JSON String type into local storage, we can access it by using localStorage.getItem('score') even after closing and re-openning the page or refreshing the page!
+                // Each time we click the Rock, Paper, or Scissors button, we save the latest score into local storage! Note that we use 'setItem' whenever there is an update on 'value'!
                 localStorage.setItem('score', JSON.stringify(score));
 
                 // Note that template string allows multi-line string!
                 alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result}
-Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`); // Remove left redundant spaces on the second line!
+Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`); // Remove left redundant spaces in the second line!
             }
         </script>
     </body>

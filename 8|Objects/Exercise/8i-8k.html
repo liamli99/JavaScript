@@ -4,6 +4,7 @@
         <title>Coin-flip Game</title>
     </head>
     <body>
+        <!-- 8i -->
         <button onclick="
             playGame('heads');
         ">heads</button>
@@ -12,26 +13,30 @@
         ">tails</button>
 
         <script>
+            // 8j, 8k
             const score = JSON.parse(localStorage.getItem('score')) || 
             {
                 wins: 0,
                 losses: 0
             }
 
+            // 8i
             function playGame(playerGuess) {
                 const randomNumber = Math.random();
                 const computerResult = randomNumber < 0.5 ? 'heads' : 'tails';
 
+                console.log(playerGuess === computerResult ? 'You win!' : 'You lose!');
+
+                // 8j
                 if (playerGuess === computerResult) {
                     score.wins += 1;
-                    console.log('You win!');
-                    console.log(score);
                 } else {
                     score.losses += 1;
-                    console.log('You lose!');
-                    console.log(score);
                 }
+                
+                console.log(score);
 
+                // 8k
                 localStorage.setItem('score', JSON.stringify(score));
             }
         </script>

@@ -31,91 +31,110 @@
 
             const product2 = {
                 name: 'shirt',
-                // cannot write delivery-time because of '-'
+                // delivery-time has syntax error because of '-', we should use 'delivery-time'!
                 'delivery-time': '1 day',
-                // nested object
+                // Object can be property value! Note that object inside object is called Nested Object!
                 rating: {
                     stars: 4.5,
                     count: 87
                 },
-                // function can also be property value!
-                fun: function function1() {
-                    console.log('hello');
+                // Function can also be property value! Note that function inside object is called Method!
+                fun: function function1(name) {
+                    console.log(`hello ${name}`);
                 }
             };
             console.log(product2);
             console.log(product2.name);
-            // bracket notation
+            // Read the property value, bracket notation
             console.log(product2['name']);
-            // cannot write console.log(product2.delivery-time) because of '-', thus we have to use bracket notation!
+            // Bracket notation is useful when dot notation doesn't work! In the following example, product2.delivery-time has syntax error because of '-', thus we have to use bracket notation!
             console.log(product2['delivery-time']);
 
+            // Chained dot notation
             console.log(product2.rating.count);
 
-            // call the funtion!
-            product2.fun();
-            // console.log() is another example! 
+            // Call the funtion (method)!
+            product2.fun('Liam');
+            // Note that console and Math are objects, log and random are functions (methods)! 
             console.log(typeof console);
             console.log(typeof console.log);
+            console.log(typeof Math);
+            console.log(typeof Math.random);
+
+            // JavaScript built-in objects: JSON and localStorage
 
             // JSON object
+            // Convert JavaScript Object to JSON String
             const jsonString = JSON.stringify(product2);
-            // its data type is string, but represents the JSON format of an object: (1) properties and string values use double quotes (2) no function as property value
+            // Its data type is string, but represents the JSON format of the Object: (1) properties and string values use double quotes (2) no function as property value
             console.log(jsonString);
             console.log(typeof jsonString);
 
+            // Convert JSON String to JavaScript Object
             const obj = JSON.parse(jsonString);
             console.log(obj);
             console.log(typeof obj);
 
-            // String also has methods! This is because JavaScript has a special feature called auto-boxing that automatically wraps the string in a special object!
+            // Primitives except Null and Undefined also have methods! This is because JavaScript has a special feature called 'Auto-Boxing' that automatically wraps the primitives into wrapper objects which provide useful methods! Thus primitives behave like they have methods!
             console.log('hello'.length);
             console.log('hello'.toUpperCase());
 
             // Objects are references!
+
+            // object1 doesn't get the object value, instead it gets a reference that points to the actual object value in the computer's memory!
+            // 'const' only makes the reference constant, thus we cannot update the reference (e.g. re-assign a value), but we can update the value it points to (e.g. update property)! 
             const object1 = {
                 message: 'hello'
-            }
-            // copy the reference, they both point to the same value in the computer's memory
-            const object2 = object1;
+            };
 
-            // even though we change object1, object2 also changes!
-            console.message = 'good';
+            // Copy the reference, both variables get the same reference that points to the same value!
+            const object2 = object1;
+            // When we update object1, object2 also changes!
+            object1.message = 'good';
             console.log(object1);
             console.log(object2);
 
-            // even though object3 has the same value as object1, they just point to different things that have the same value and '===' compare the references!
+            // Even though object3 has the same value as object1, they have different references that point to different locations!
             const object3 = {
                 message: 'good'
             };
-            console.log(object1 === object3);
+            // False because '===' compares the references, object1 and object3 have different references
+            console.log(object3 === object1);
+            // True because object1 and object2 have the same reference
             console.log(object2 === object1);
 
-            // shortcut - destructuring
-            const object4 = {
-                message: 'Good job!'
-            };
-            // This is the same as 'const message = object4.message;'
-            const { message } = object4;
-            console.log(message);
+            // Shortcut
 
-            // shortcut - shorthand property
+            // Destructuring
+            const object4 = {
+                message: 'Good job!',
+                price: 799
+            };
+            // const message = object4.message;
+            // const price = object4.price;
+            const { message, price } = object4;
+            console.log(message);
+            console.log(price);
+
+            // Shorthand Property
             const object5 = {
-                // message: message, this works when property is the same as value
-                message
+                // message: message,
+                // price: price
+                message,
+                price
             };
             console.log(object5);
 
-            // shortcut - shorthand method
+            // Shorthand Method
             const object6 = {
-                // method: function function1() {
-                //     console.log('method');
+                // method: function functionName(name) {
+                //     console.log(`hi ${name}`);
                 // }
-                method() {
-                    console.log('method');
+                method(name) {
+                    console.log(`hi ${name}`);
                 }
-            }
-            object6.method();
+            };
+            object6.method('Liam');
         </script>
     </body>
 </html>

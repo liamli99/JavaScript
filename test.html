@@ -11,6 +11,14 @@
                 }
             }
             document.querySelector('input').addEventListener('keydown', update);
+
+            function f1(a=2, b) {
+                console.log(a);
+                console.log(b);
+                return a + b;
+            }
+
+            console.log(f1());
         </script>
     </body>
 </html>
