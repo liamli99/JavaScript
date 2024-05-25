@@ -2,20 +2,24 @@
 <html>
     <head></head>
     <body>
+        <!-- 9d -->
         <input class="js-input" onkeydown="
+            // 9e
             handleKeydown(event);
         ">
         <button onclick="
             submit();
         ">Submit</button>
-        <p class="result"></p>
+        <p class="js-message"></p>
 
         <script>
+            // 9f
             function submit() {
                 const name = document.querySelector('.js-input').value;
-                document.querySelector('.result').innerHTML = `Your name is: ${name}`;
+                document.querySelector('.js-message').innerHTML = `Your name is: ${name}`;
             }
 
+            // 9f
             function handleKeydown(event) {
                 if (event.key === 'Enter') {
                     submit();

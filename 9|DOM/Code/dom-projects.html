@@ -1,3 +1,5 @@
+<!-- https://supersimple.dev/projects/dom/ -->
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -7,14 +9,14 @@
         <p>YouTube Subscribe Button</p>
         <button onclick="
             subscribe();
-        " class="js-subscribe-button">Subscribed</button>
+        " class="js-subscribe-button">Subscribe</button>
+
+        <!-- Note that there should be no space between Subscribe and button tags! Otherwise, we should use if (buttonElement.innerText === 'Subscribe')! -->
 
         <p>Amazon Shipping Calculator</p>
         <input class="js-cost-input" placeholder="Cost of order" onkeydown="
-            // if (event.key === 'Enter') {
-            //     calculateTotal();
-            // }
-            // event is provided by onkeydown!
+            // onkeydown: what will happen when typing in the input box
+            // event object is provided by onkeydown!!!
             handleCostKeydown(event);
         ">
         <button onclick="
@@ -24,10 +26,11 @@
 
         <script>
             function subscribe() {
-                // we cannot write const buttonElement = document.querySelector('.js-subscribe-button').innerHTML!!!
+                // We cannot write const buttonElement = document.querySelector('.js-subscribe-button').innerHTML!!!
                 const buttonElement = document.querySelector('.js-subscribe-button');
 
-                // Note that only buttonElement is const, so we can still update buttonElement.innerHTML!
+                // Note that buttonElement is a variable that is assigned an object. Due to const, we can update the property, but we cannot re-assign the value!
+                // If there exists space between Subscribe and button tags, we should use if (buttonElement.innerText === 'Subscribe')!
                 if (buttonElement.innerHTML === 'Subscribe') {
                     buttonElement.innerHTML = 'Subscribed';
                 } else {
@@ -37,15 +40,17 @@
 
             function calculateTotal() {
                 const inputElement =  document.querySelector('.js-cost-input');
+                // Convert String to Number
                 let cost = Number(inputElement.value);
 
                 if (cost < 40) {
                     cost += 10;
                 }
 
-                document.querySelector('.js-total-cost').innerHTML = `${cost}$`;
+                document.querySelector('.js-total-cost').innerHTML = `$${cost}`;
             }
 
+            // Press Enter works the same as click calculate button!
             function handleCostKeydown(event) {
                 if (event.key === 'Enter') {
                     calculateTotal();

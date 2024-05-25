@@ -61,8 +61,9 @@
             <button onclick="
                 calculation = eval(calculation);
 
-                displayCalculation();
                 localStorage.setItem('cal', calculation);
+                
+                displayCalculation();
             ">=</button>
             <button onclick="
                 updateCalculation(' / ')
@@ -73,21 +74,24 @@
             <button onclick="
                 calculation = '';
                 
-                displayCalculation();
                 localStorage.removeItem('cal');
+                
+                displayCalculation();
             ">Clear</button>
         </p>
         
         <script>
             let calculation = localStorage.getItem('cal') || '';
 
+            // According to the requirement "display the calculation when page first loads", when the page is loaded or refreshed, Internal/External JS between script runs from the beginning, thus we should add this code here so that it is executed to display calculation when the page first loads!
             displayCalculation();
             
             function updateCalculation(value) {
                 calculation += value;
                 
-                displayCalculation();
                 localStorage.setItem('cal', calculation);
+                
+                displayCalculation();
             }
 
             function displayCalculation() {

@@ -1,3 +1,5 @@
+<!-- https://supersimple.dev/projects/dom-rock-paper-scissors/ -->
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -28,7 +30,7 @@
             
             localStorage.removeItem('score');
 
-            // Other buttons can display score inside playGame function, we should mannually display score here!
+            // Other buttons can display score because of playGame function, thus we should mannually display score here!
             updateScoreElement();
         ">Reset Score</button>
         
@@ -39,7 +41,7 @@
                 ties: 0
             };
 
-            // The score should always be displayed when the page is loaded/refreshed! When the page is loaded/refreshed, Internal/External JS code between script runs from the beginning, thus we should add this code here so that it is executed to display score when the page is loaded/refreshed!
+            // The score should always be displayed when the page is loaded or refreshed! When the page is loaded or refreshed, Internal/External JS code between script runs from the beginning, thus we should add this code here so that it is executed to display score whenever the page is loaded or refreshed!
             
             // Without this code, the score is displayed only after clicking the button!
             updateScoreElement();
@@ -99,15 +101,15 @@
 
                 localStorage.setItem('score', JSON.stringify(score));
 
-                // display first line js-result
+                // Display first line js-result
                 document.querySelector('.js-result').innerHTML = result;
-                // display second line js-moves
+                // Display second line js-moves
                 document.querySelector('.js-moves').innerHTML = `You ${playerMove} - ${computerMove} Computer`;
-                // display third line js-score
+                // Display third line js-score
                 updateScoreElement();
             }
 
-            // display third line js-score
+            // Display third line js-score
             function updateScoreElement() {
                 document.querySelector('.js-score').innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
             }

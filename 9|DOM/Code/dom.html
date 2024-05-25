@@ -8,34 +8,51 @@
         <button class="js-button">Second button</button>
         
         <script>
-            // console.log(typeof document);
+            // document is a built-in JavaScript Object
+            console.log(typeof document);
 
-            // console.log(document.title);
-            // console.log(typeof document.title);
-            // document.title = 'good job!';
+            // Get the page's title
+            console.log(document.title);
+            // Its type is String
+            console.log(typeof document.title);
+            // Change the page's title
+            document.title = 'Changed';
 
-            // console.log(document.body);
-            // console.log(typeof document.body);
+            // Get all the html between body tags (inclusive)
+            console.log(document.body);
+            // Its type is Object
+            console.log(typeof document.body);
+            
+            // Get all the html between body tags (exclusive)
+            console.log(document.body.innerHTML);
+            // Its type is String
+            console.log(typeof document.body.innerHTML);
+            // Change all the html between body tags (exclusive)
+            // document.body.innerHTML = '<button onclick="alert(\'surprise\')">Click</button>';
 
-            // console.log(document.body.innerHTML);
-            // console.log(typeof document.body.innerHTML);
-            // document.body.innerHTML = 'Changed';
-            // document.body.innerHTML = '<button>Click</button>';
-
+            // Get all the html between the first button tags (inclusive)
             console.log(document.querySelector('button'));
+            // Its type is Object
             console.log(typeof document.querySelector('button'));
 
+            // Get all the html between the first button tags (exclusive)
             console.log(document.querySelector('button').innerHTML);
+            // Its type is String
             console.log(typeof document.querySelector('button').innerHTML);
+            // Change all the html between the first button tags (exclusive)
             document.querySelector('button').innerHTML = 'Changed';
 
+            // Get all the html between the first element with class = 'js-button' (inclusive)
             console.log(document.querySelector('.js-button'));
+            // Its type is Object
             console.log(typeof document.querySelector('.js-button'));
 
+            // Get all the html between the first element with class = 'js-button' (exclusive)
             console.log(document.querySelector('.js-button').innerHTML);
+            // Its type is String
             console.log(typeof document.querySelector('.js-button').innerHTML);
+            // Change all the html between the first element with class = 'js-button' (exclusive)
             document.querySelector('.js-button').innerHTML = 'Second changed';
-
         </script>
     </body>
 </html>

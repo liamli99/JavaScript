@@ -58,23 +58,32 @@
             -3
         </button>
 
+        <button onclick="
+            cartQuantity = 0;
+            displayCartQuantity();
+        ">
+            Reset Cart
+        </button>
+
         <p class="js-quantity"></p>
         
         <script>
             let cartQuantity = 0;
 
-            // According to the requirement "display the quantity when page first loads", when the page is loaded/refreshed, Internal/External JS between script runs from the beginning, thus we should add this code here so that it is executed when the page first loads to display quantity!
+            // According to the requirement "display the quantity when page first loads", when the page is loaded or refreshed, Internal/External JS between script runs from the beginning, thus we should add this code here so that it is executed to display quantity when the page first loads!
             displayCartQuantity();
 
             function updateCartQuantity(num) {
                 if (cartQuantity + num > 10) {
                     alert('The cart is full');
-                } else if (cartQuantity + num < 0) {
-                    alert('Not enough items in the cart');
-                } else {
-                    cartQuantity += num;
-                    displayCartQuantity();
+                    return;
                 }
+                if (cartQuantity + num < 0) {
+                    alert('Not enough items in the cart');
+                    return;
+                }
+                cartQuantity += num;
+                displayCartQuantity();
             }
 
             function displayCartQuantity() {
