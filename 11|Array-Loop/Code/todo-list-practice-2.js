@@ -10,7 +10,7 @@ function addTodo() {
     inputElement.value = '';
 }
 
-// Display the array on the page
+// Display the array (todoList) on the page
 function renderTodoList() {
     let todoListHTML = '';
     

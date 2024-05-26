@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Arrays and Loops 2</title>
+    </head>
+    <body>
+        <script>
+            // Arrays are also references! See Objects for more details!
+            const array1 = [1, 2, 3];
+
+            // Copy by reference, both arrays point to the same location (so that same value)!
+            const array2 = array1;
+            // True because === compares the reference, array2 and array1 have the same reference!
+            console.log(array2 === array1);
+            // When we update array2, array1 also changes! 
+            array2.push(4);
+            console.log(array2);
+            console.log(array1);
+
+            // Copy by value, both arrays point to different locations with the same value!
+            const array3 = array1.slice();
+            // False because === compares the reference, array3 and array1 have different references!
+            console.log(array3 === array1);
+            // When we update array3, array1 doesn't change! 
+            array3.push(5);
+            console.log(array3);
+            console.log(array1);
+
+            // Shortcut - Destructuring
+            const array4 = ['hello', NaN, 3];
+            const [firstValue, secondValue] = array4;
+            console.log(firstValue);
+            console.log(secondValue);
+
+            // We can use destructuring to swap values of two variables!
+            let a = 'a';
+            let b = 'b';
+            [a, b] = [b, a];
+            console.log(a);
+            console.log(b);
+
+            // Loops
+
+            // break vs. continue
+            for (let i = 1; i <= 10; i++) {
+                if (i == 3) {
+                    // Skip 1 iteration
+                    continue;
+                }
+                console.log(i);
+                if (i == 8) {
+                    // Exit the loop
+                    break;
+                }
+            }
+
+            // Skip numbers that are divisible by 3
+
+            // Note that continue in while loop can skip the increment step! So we have to add increment step before continue!!!
+            let i = 1;
+            while (i <= 10) {
+                if (i % 3 === 0) {
+                    i++;
+                    continue;
+                    
+                }
+                console.log(i);
+                i++;
+            }
+            // However, this is not a problem in for loop because increment setp is done automatically!
+            for (let i = 1; i <= 10; i++) {
+                if (i % 3 === 0) {
+                    continue;
+                }
+                console.log(i);
+            }
+
+            // Loop in function
+            function doubleArray(nums) {
+                const numsDoubled = [];
+                for (let i = 0; i < nums.length; i++) {
+                    if (nums[i] === 0) {
+                        // Early return! 'return' in function works similarly to 'break' in loop that can exit the function early!
+                        return numsDoubled;
+                    }
+                    numsDoubled.push(nums[i] * 2);
+                }
+                return numsDoubled;
+            }
+            console.log(doubleArray([1, 2, 3]));
+            console.log(doubleArray([1, 2, 3, 4, 0, 5]));
+        </script>
+    </body>
+</html>
