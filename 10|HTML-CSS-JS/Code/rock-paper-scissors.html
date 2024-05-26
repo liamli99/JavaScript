@@ -1,3 +1,5 @@
+<!-- https://supersimple.dev/projects/rock-paper-scissors/ -->
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -7,17 +9,17 @@
     <body>
         <p class="title">Rock Paper Scissors</p>
         
-        <button onclick="
+        <button class="move-button" onclick="
             playGame('rock');
-        " class="move-button"><img src="images/rock-emoji.png" class="move-icon"></button>
+        "><img class="move-icon" src="images/rock-emoji.png"></button>
 
-        <button onclick="
+        <button class="move-button" onclick="
             playGame('paper');
-        " class="move-button"><img src="images/paper-emoji.png" class="move-icon"></button>
+        "><img class="move-icon" src="images/paper-emoji.png"></button>
 
-        <button onclick="
+        <button class="move-button" onclick="
             playGame('scissors');
-        " class="move-button"><img src="images/scissors-emoji.png" class="move-icon"></button>
+        "><img class="move-icon" src="images/scissors-emoji.png"></button>
 
         <p class="js-result result"></p>
         <p class="js-moves"></p>

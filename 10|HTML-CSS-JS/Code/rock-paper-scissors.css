@@ -11,6 +11,7 @@ body {
 
 /* This is a very good CSS example of wrapping an image inside a button!!! */
 .move-button {
+    /* Make the button see-through so that its background color is the same as the body! */
     background-color: transparent;
     width: 120px;
     height: 120px;
@@ -36,8 +37,8 @@ body {
 
 .reset-score-button {
     background-color: white;
-    border: none;
-    padding: 8px 15px;
     font-size: 15px;
+    padding: 8px 15px;
+    border: none;
     cursor: pointer;
 }

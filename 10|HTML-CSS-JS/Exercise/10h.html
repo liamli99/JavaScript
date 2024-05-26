@@ -50,7 +50,7 @@
                     // We don't have to worry about adding so many duplicate 'error-message', 'add' function doesn't add duplicate style!
                     messageElement.classList.add('error-message');
                     messageElement.innerHTML = 'Error: cost cannot be less than $0';
-                    // exit the function early
+                    // Early return
                     return;
                 }
 
@@ -58,7 +58,7 @@
                     cost += 10;
                 } 
                 
-                // We actually don't have to check if this style exists and then remove it, we can directly remove it because 'remove' function removes the style if it exists and does nothing if it doesn't exist!
+                // We don't have to check if this style exists and then remove it, we can directly remove it because 'remove' function removes the style if it exists and does nothing if it doesn't exist!
                 messageElement.classList.remove('error-message');
                 messageElement.innerHTML = `$${cost}`;
             }

@@ -62,8 +62,12 @@ function playGame(playerMove) {
     localStorage.setItem('score', JSON.stringify(score));
 
     document.querySelector('.js-result').innerHTML = result;
-    // Very interesting! We can insert any value into a template string, even if it is part of an image file path!
-    document.querySelector('.js-moves').innerHTML = `You <img src="images/${playerMove}-emoji.png" class="move-icon"> <img src="images/${computerMove}-emoji.png" class="move-icon"> Computer`;
+    // We use Interpolation and Multi-line features of template string
+    document.querySelector('.js-moves').innerHTML = `
+    You 
+    <img src="images/${playerMove}-emoji.png" class="move-icon"> 
+    <img src="images/${computerMove}-emoji.png" class="move-icon"> 
+    Computer`;
     updateScoreElement();
 }
 

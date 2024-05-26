@@ -1,3 +1,4 @@
+// 10f
 function toggle(selector) {
     const buttonElement = document.querySelector(selector);
 
@@ -10,6 +11,7 @@ function toggle(selector) {
 }
 
 // Check if there exists a button that is already turned ON, if exists, we should turn that button OFF before turning the new button ON!
+// 10g
 function turnOffPotentialPreviousButton() {
     const previousButtonElement = document.querySelector('.is-toggled');
 
