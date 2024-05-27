@@ -62,7 +62,6 @@ function playGame(playerMove) {
     localStorage.setItem('score', JSON.stringify(score));
 
     document.querySelector('.js-result').innerHTML = result;
-    // Very interesting! We can insert any value into a template string, even if it is part of an image file path!
     document.querySelector('.js-moves').innerHTML = `You <img src="images/${playerMove}-emoji.png" class="move-icon"> <img src="images/${computerMove}-emoji.png" class="move-icon"> Computer`;
     updateScoreElement();
 }
@@ -71,7 +70,31 @@ function updateScoreElement() {
     document.querySelector('.js-score').innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
 }
 
-// Add event listeners
+// Auto play
+let isAutoPlaying = false;
+let intervalId;
+// We prefer regular function when creating functions because it is easier to read and enables hoisting!
+function autoPlay() {
+    if (!isAutoPlaying) {
+        // We prefer arrow function when creating callback!
+        intervalId = setInterval(() => {
+            // Since we auto play the game, we don't click the button to choose playerMove! Thus playerMove should be randomly chosen!
+            const playerMove = pickComputerMove();
+            playGame(playerMove);
+        }, 1000);
+
+        isAutoPlaying = true;
+        document.querySelector('.auto-play-button').innerHTML = 'Stop Play';
+    } else {
+        // Stop the interval to stop auto play!!!
+        clearInterval(intervalId);
+        
+        isAutoPlaying = false;
+        document.querySelector('.auto-play-button').innerHTML = 'Auto Play';
+    }
+}
+
+// Use addEventListener instead of onclick!
 document.querySelector('.js-rock-button').addEventListener('click', () => {
     playGame('rock');
 });
@@ -81,6 +104,9 @@ document.querySelector('.js-paper-button').addEventListener('click', () => {
 document.querySelector('.js-scissors-button').addEventListener('click', () => {
     playGame('scissors');
 });
+
+// Try addEventListener with keydown!
+// Type 'r': play rock; Type 'p': play paper; Type 's': play scissors
 document.body.addEventListener('keydown', (event) => {
     if (event.key === 'r') {
         playGame('rock');
@@ -89,25 +115,4 @@ document.body.addEventListener('keydown', (event) => {
     } else if (event.key === 's') {
         playGame('scissors');
     }
-})
-
-let isAutoPlaying = false;
-let intervalId;
-// We prefer not to use arrow function here since this syntax enables Hoisting!
-function autoPlay() {
-    if (!isAutoPlaying) {
-        // use arrow function
-        intervalId = setInterval(() => {
-            const playerMove = pickComputerMove();
-            playGame(playerMove);
-        }, 1000);
-
-        isAutoPlaying = true;
-        document.querySelector('.auto-play-button').innerHTML = 'Stop Play';
-    } else {
-        clearInterval(intervalId);
-        
-        isAutoPlaying = false;
-        document.querySelector('.auto-play-button').innerHTML = 'Auto Play';
-    }
-}
+});

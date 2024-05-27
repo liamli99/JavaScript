@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Advanced Functions 1</title>
+    </head>
+    <body>
+        <script>
+            // Hoisting! We can call the function before its declaration! 
+            function1();
+            function function1() {
+                console.log('hello1');
+            }
+
+            // Functions are values, so that we can save a function inside a variable! 
+            // Hoisting doesn't work!
+            const function2 = function greeting() {
+                console.log('hello2');
+            }
+            // Call the function using the variable name, not the function name!
+            function2();
+
+            // Note that when we save a function inside a variable, function name is not needed because we can use that variable name to call the function, thus we can create an anonymous function!
+            // Hoisting doesn't work!
+            const function3 = function() {
+                console.log('hello3');
+            }
+            function3();
+
+            // Since functions are values, a function can be an object's property value!
+            const obj = {
+                // Method (function inside object)
+                method1: function greeting(name) {
+                    console.log(`hello4 ${name}`);
+                },
+                // Note that function name is not needed because we use property name to call the function. Thus we can create an anonymous function!
+                method2: function(name) {
+                    console.log(`hello5 ${name}`);
+                },
+                // Shorthand Method
+                method3(name) {
+                    console.log(`hello6 ${name}`);
+                }
+            }
+            // Call the funtion (method) using the property name!
+            obj.method1('A');
+            obj.method2('B');
+            obj.method3('C');
+
+            // Since functions are values, a function can also be another function's argument!
+            // We call "A function passed into another function as an argument" a Callback! Then we call 'A function that accepts a function as an argument' a Higher Order Function!
+            // Here higher order function doesn't provide parameter to callback
+            function higherOrderFunction(callback) {
+                callback();
+            }
+            higherOrderFunction(function() {
+                console.log('Hi!');
+            });
+
+            // Asynchronous code
+
+            // This function will run after 2s, but we won't wait for it to finish, we immediately go to the next line!
+            setTimeout(function() {
+                console.log('timeout');
+            }, 2000);
+
+            // This code runs first!
+            console.log('next line');
+
+            // This function will run after 2s and keeps running every 2s! But we won't wait for it to finish, we immediately go to the next line!
+            setInterval(function() {
+                console.log('interval');
+            }, 2000);
+
+            // This code runs second!
+            console.log('next line 2'); 
+
+            // forEach: execute the provided function on each array element!
+            // It provides parameters 'value' (item value), 'index' (item index), and 'array' (the whole array) to callback, you can choose not to use these parameters or only part of these parameters! 
+            // The parameter names don't matter, but the order of these parameters matters!
+            [
+                'make dinner',
+                'wash dishes',
+                'watch youtube'
+            ].forEach(function(value, index) {
+                if (value === 'wash dishes') {
+                    // Works the same as 'continue' to skip 1 iteration!
+                    // However, there is no good alternative of 'break'!
+                    return;
+                }
+                console.log(value);
+                console.log(index);
+            })
+        </script>
+    </body>
+</html>

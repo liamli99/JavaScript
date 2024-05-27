@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <button class="js-button-1">Click 1</button>
+        <button class="js-button-2">Click 2</button>
+        <button class="js-button-3">Click 3</button>
+        <button class="js-button-4">Click 4</button>
+        <script>
+            // Suppose higher order function doesn't provide parameter to callback
+            // Let's take setTimeout as an example!
+
+            // (1) No predefined callback
+            setTimeout(() => {
+                console.log('hello');
+            }, 1000)
+            
+            // (2) Predefined callback without parameter
+            const callback1 = () => {
+                console.log('hello 1');
+            }
+            
+            // Solution 1
+            setTimeout(() => {
+                callback1();
+            }, 1000)
+
+            // Solution 2
+            setTimeout(callback1, 1000);
+
+            // (3) Predefined callback with parameter
+            const callback2 = (name) => {
+                console.log(`hello 2 ${name}`);
+            }
+
+            setTimeout(() => {
+                callback2('Liam');
+            }, 1000)
+            
+            // This is wrong because higher order function doesn't provide parameters, thus 'name' will be 'undefined'!
+            setTimeout(callback2, 1000);
+
+
+
+            // Suppose higher order function provides argument to callback
+            // Let's take addEventListener as an example!
+
+            // (1) No predefined callback
+            // (i) If callback function body doesn't need parameter provided by higher order function
+            document.querySelector('.js-button-1').addEventListener('click', () => {
+                alert('hello');
+            })
+
+            // (ii) If callback function body needs parameter provided by higher order function
+            document.querySelector('.js-button-1').addEventListener('click', (event) => {
+                alert(`hello ${event.type}`);
+            })
+
+            // (2) Predefined callback without parameter
+            const callback3 = () => {
+                alert('hello 3');
+            }
+
+            // Solution 1
+            document.querySelector('.js-button-2').addEventListener('click', () => {
+                callback3();
+            })
+
+            // Solution 2
+            document.querySelector('.js-button-2').addEventListener('click', callback3)
+
+            // (3) Predefined callback with parameter
+            // (i) If parameter is not provided by higher order function
+            const callback4 = (name) => {
+                alert(`hello 4 ${name}`);
+            }
+
+            document.querySelector('.js-button-3').addEventListener('click', () => {
+                callback4('Liam');
+            })
+
+            // This is wrong because higher order function provide parameter, thus 'name' will be 'event'!
+            document.querySelector('.js-button-3').addEventListener('click', callback4)
+
+            // (ii) If parameter is provided by higher order function
+            const callback5 = (event) => {
+                alert(`hello 5 ${event.type}`);
+            }
+
+            // Solution 1
+            document.querySelector('.js-button-4').addEventListener('click', (event) => {
+                callback5(event);
+            })
+
+            // Solution 2
+            document.querySelector('.js-button-4').addEventListener('click', callback5)
+        </script>
+    </body>
+</html>

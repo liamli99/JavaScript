@@ -1,4 +1,5 @@
-<!-- Reference: https://supersimple.dev/projects/advanced-functions/ -->
+<!-- https://supersimple.dev/projects/advanced-functions/ -->
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -8,20 +9,12 @@
     <body>
         <p class="title">Rock Paper Scissors</p>
         
-        <button class="move-button" onclick="
-            playGame('rock');
-        "><img class="move-icon" src="images/rock-emoji.png">
-        </button>
+        <!-- Use addEventListener instead of onclick! -->
+        <button class="move-button js-rock-button"><img class="move-icon" src="images/rock-emoji.png"></button>
 
-        <button class="move-button" onclick="
-            playGame('paper');
-        "><img class="move-icon" src="images/paper-emoji.png">
-        </button>
+        <button class="move-button js-paper-button"><img class="move-icon" src="images/paper-emoji.png"></button>
 
-        <button class="move-button" onclick="
-            playGame('scissors');
-        "><img class="move-icon" src="images/scissors-emoji.png">
-        </button>
+        <button class="move-button js-scissors-button"><img class="move-icon" src="images/scissors-emoji.png"></button>
 
         <p class="js-result result"></p>
         <p class="js-moves"></p>
@@ -33,14 +26,13 @@
             score.ties = 0;
             
             localStorage.removeItem('score');
+            
             updateScoreElement();
-        ">Reset Score
-        </button>
+        ">Reset Score</button>
 
         <button class="auto-play-button" onclick="
             autoPlay();
-        ">Auto Play
-        </button>
+        ">Auto Play</button>
         
         <script src="rock-paper-scissors.js"></script>
     </body>

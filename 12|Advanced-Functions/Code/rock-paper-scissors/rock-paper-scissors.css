@@ -9,7 +9,6 @@ body {
     font-weight: bold;
 }
 
-/* This is a very good CSS example of wrapping an image inside a button!!! */
 .move-button {
     background-color: transparent;
     width: 120px;
@@ -37,8 +36,8 @@ body {
 .reset-score-button,
 .auto-play-button {
     background-color: white;
-    border: none;
-    padding: 8px 15px;
     font-size: 15px;
+    padding: 8px 15px;
+    border: none;
     cursor: pointer;
 }

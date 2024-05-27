@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Advanced Functions 2</title>
+    </head>
+    <body>
+        <button class="js-button">Click</button>
+        <script>
+            // Regular function (anonymous function)
+            const regularFunction = function(name) {
+                console.log(`hello ${name}`);
+            };
+            regularFunction('Liam');
+
+            // Arrow function, mostly works the same as regular functions!
+            const arrowFunction = (name) => {
+                console.log(`hello ${name}`);
+            };
+            arrowFunction('Li');
+
+            // shortcut
+
+            // If only one parameter, we can remove the parentheses
+            const oneParam = param => {
+                console.log(param);
+            };
+            oneParam(1);
+
+            // If function body only has one line, we can put everything on the same line! We can also remove the curly brackets!
+            const oneLine1 = param => console.log(param);
+            oneLine1(2);
+            // We can even remove the 'return' keyword if exists!
+            const oneLine2 = param => param * 2;
+            console.log(oneLine2(3));
+
+            // Try to use arrow function
+
+            [
+                'make dinner',
+                'wash dishes',
+                'watch youtube'
+            ].forEach((value, index) => {
+                console.log(value);
+                console.log(index);
+            })
+
+            const object = {
+                // Arrow function
+                method1: () => {
+                    console.log('hello');
+                },
+
+                // However, there is a shortcut - shorthand method, it is easier to read than arrow function!
+                method2() {
+                    console.log('hello');
+                }
+            }
+
+            // addEventListener
+            const eventListener = () =>  {
+                alert('click 1');
+            }
+            document.querySelector('.js-button').addEventListener('click', eventListener)
+
+            // Add multiple event listeners
+            document.querySelector('.js-button').addEventListener('click', () => {
+                alert('click 2');
+            })
+
+            // Remove a specific event listener
+            document.querySelector('.js-button').removeEventListener('click', eventListener)
+
+            // filter: create a new array, execute the provided function on each array element and add elements that pass the test (i.e. elements that can make 'condition' true!) to new array!
+            const array1 = [1, -1, -2, 4];
+            const newArray1 = array1.filter((value) => {
+                return value > 0;
+            })
+            // Shortcut
+            // const newArray1 = array1.filter(value => value > 0);
+            console.log(array1);
+            console.log(newArray1);
+
+            // map: create a new array, execute the provided function on each array element and add the return value to new array!   
+            const array2 = [1, 2, 3];
+            const newArray2 = array2.map((value) => {
+                return value * 2;
+            })
+            // Shortcut
+            // const newArray2 = array2.map(value => value * 2);
+            console.log(array2);
+            console.log(newArray2);
+        </script>
+    </body>
+</html>
