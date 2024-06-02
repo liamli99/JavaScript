@@ -1,2 +1,2 @@
-// Similar to products.js, we create a list of objects to represent products in the cart
+// Similar to products, we create a list of objects to represent products in the cart! However, different from products, cart only has two properties: productId and quantity! Since id is unique, we can use productId to find out the corresponding image, name, ...!
 const cart = [];

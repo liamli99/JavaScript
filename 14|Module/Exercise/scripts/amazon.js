@@ -1,7 +1,13 @@
+// Use Modules
+import { cart, addToCart, calculateCartQuantity } from '../data/cart.js';
+import { products } from '../data/products.js';
+import { formatCurrency } from './utils/money.js';
+
+// Display cart quantity when loading or refreshing amazon.html! Note that deleting products in cart.html and then switching to amazon.html can also be considered as loading amazon.html, so that new cart quantity can be displayed after deleting products!
+updateCartQuantity();
+
 let productsHTML = '';
 
-// Note that in amazon.html, we load products.js before loading amazon.js!!! This order is very important so that we can get products first and then use this variable here!
-// Loop through products to generate HTML for each product container
 products.forEach((product) => {
     productsHTML += `
         <div class="product-container">
@@ -23,8 +29,7 @@ products.forEach((product) => {
             </div>
 
             <div class="product-price">
-                <!-- Keep 2 decimal places! -->
-                $${(product.priceCents / 100).toFixed(2)}
+                $${formatCurrency(product.priceCents)}
             </div>
 
             <div class="product-quantity-container">
@@ -49,7 +54,6 @@ products.forEach((product) => {
                 Added
             </div>
 
-            <!-- 'data-*' is an HTML attribute that allows us to attach any String information to an element. We add this attribute to Add to Cart button so that we can know which product to be added when clicking the button! -->
             <button class="add-to-cart-button button-primary js-add-to-cart" data-product-id="${product.id}">
                 Add to Cart
             </button>
@@ -59,40 +63,20 @@ products.forEach((product) => {
 
 document.querySelector('.js-products-grid').innerHTML = productsHTML;
 
-// Add event listener to Add to Cart button 
+// Calculate and display the current cart quantity to the top right of the page
+function updateCartQuantity() {
+    const cartQuantity = calculateCartQuantity();
+
+    document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
+}
+
 document.querySelectorAll('.js-add-to-cart').forEach((buttonElement) => {
     buttonElement.addEventListener('click', () => {
-        // We can get the value of data-any-name by using element.dataset.anyName!!! Note that element.dataset is an object that each property corresponds to each 'data-*' attribute! However, the name is converted from kebak-case to camelCase!
         const productId = buttonElement.dataset.productId;
-        
-        // Similar to products, we can use cart here because we load cart.js before loading amazon.js in amazon.html!
-        // Check if the product is already in the cart. If it is in the cart, then increase the quantity; If it is not in the cart, then add it to the cart!
-        let matchingItem;
-        
-        cart.forEach((item) => {
-            if (productId === item.productId) {
-                matchingItem = item;
-            }
-        })
-        
-        if (matchingItem) {
-            // 'matchingItem = item' is 'copy by reference', so that when updating matchingItem, item in cart also updates! 
-            matchingItem.quantity += 1;
-        } else {
-            cart.push({
-                productId: productId,
-                quantity: 1
-            })
-        }
 
-        // Calculate and display the current cart quantity to the top right of the page
-        let cartQuantity = 0;
-
-        cart.forEach((item) => {
-            cartQuantity += item.quantity;
-        })
-
-        document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
+        addToCart(productId);
+        // Display cart quantity after clicking Add to Cart button!
+        updateCartQuantity();
     })
 })
 
