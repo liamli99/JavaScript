@@ -47,7 +47,7 @@
                 const messageElement = document.querySelector('.js-total-cost');
 
                 if (cost < 0) {
-                    // We don't have to worry about adding so many duplicate 'error-message', 'add' function doesn't add duplicate style!
+                    // We don't have to worry about adding duplicate 'error-message', 'add' function can ignore duplicate style and only keep one!
                     messageElement.classList.add('error-message');
                     messageElement.innerHTML = 'Error: cost cannot be less than $0';
                     // Early return
