@@ -3,22 +3,25 @@
     <head></head>
     <body>
         <script>
+            // 11a
             const nums = [10, 20, 30];
-            nums[2] = 99;
+            nums[nums.length - 1] = 99;
             console.log(nums);
 
+            // 11b
             function getLastValue(array) {
                 return array[array.length - 1];
             }
-            console.log(getLastValue(nums));
+            console.log(getLastValue([1, 20, 22, 24, 5]));
 
+            // 11c
             // Swap variables using Destructuring Assignment!
             function arraySwap(array) {
                 [array[0], array[array.length - 1]] = [array[array.length - 1], array[0]];
                 
                 return array;
             }
-            console.log(arraySwap(nums));
+            console.log(arraySwap([1, 20, 22, 24, 5]));
 
             // Swap variables using a temporary variable
             // function arraySwap(array) {
@@ -28,6 +31,7 @@
 
             //     return array;
             // }
+            // console.log(arraySwap([1, 20, 22, 24, 5]));
         </script>
     </body>
 </html>

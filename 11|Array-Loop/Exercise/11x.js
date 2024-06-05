@@ -1,4 +1,12 @@
-const todoList = JSON.parse(localStorage.getItem('todoList')) || [];
+const todoList = JSON.parse(localStorage.getItem('todoList')) || [
+    {
+        name: 'make dinner',
+        dueDate: '2000-01-01'
+    }, {
+        name: 'wash dishes',
+        dueDate: '2000-02-02'
+    }
+];
 
 renderTodoList();
 
@@ -13,10 +21,10 @@ function addTodo() {
         dueDate
     });
     renderTodoList();
-    
-    localStorage.setItem('todoList', JSON.stringify(todoList));
 
     inputElement.value = '';
+
+    localStorage.setItem('todoList', JSON.stringify(todoList));
 }
 
 function renderTodoList() {
@@ -31,7 +39,6 @@ function renderTodoList() {
             <div>${dueDate}</div>
             <button class="delete-todo-button" onclick="
                 todoList.splice(${i}, 1);
-                // call itself, recursion!!!
                 renderTodoList();
 
                 localStorage.setItem('todoList', JSON.stringify(todoList));

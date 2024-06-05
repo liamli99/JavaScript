@@ -6,7 +6,7 @@
             function countWords(words) {
                 const result = {};
                 
-                // For each element in words, we can either use result.words[i] or result[words[i]] to access property value. Since words is an array of strings, we can only use bracket notation!
+                // In order to access property value, we can either use result.words[i] or result[words[i]]. However, since words is an array of strings, we can only use bracket notation!!!
                 for (let i = 0; i < words.length; i++) {
                     if (result[words[i]]) {
                         result[words[i]] += 1;

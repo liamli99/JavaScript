@@ -3,29 +3,30 @@
     <head></head>
     <body>
         <script>
+            // 11l
             function minMax(nums) {
-                let minValue = nums[0] || null;
-                let maxValue = nums[0] || null;
+                // 11m
+                const result = {
+                    min: nums[0] || null,
+                    max: nums[0] || null
+                }
 
                 for (let i = 0; i < nums.length; i++) {
-                    if (nums[i] < minValue) {
-                        minValue = nums[i];
+                    if (nums[i] < result.min) {
+                        result.min = nums[i];
                     }
 
-                    if (nums[i] > maxValue) {
-                        maxValue = nums[i];
+                    if (nums[i] > result.max) {
+                        result.max = nums[i];
                     }
                 }
 
-                return {
-                        min: minValue,
-                        max: maxValue
-                    }
+                return result;
             }
 
             console.log(minMax([-2, 3, -5, 7, 10]));
-            console.log(minMax([3]));
             console.log(minMax([]));
+            console.log(minMax([3]));
         </script>
     </body>
 </html>

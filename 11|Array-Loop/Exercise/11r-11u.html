@@ -3,8 +3,9 @@
     <head></head>
     <body>
         <script>
+            // 11r
             function removeEgg(foods) {
-                let result = [];
+                const result = [];
                 for (let i = 0; i < foods.length; i++) {
                     if (foods[i] === 'egg') {
                         continue;
@@ -15,8 +16,9 @@
             }
             console.log(removeEgg(['egg', 'apple', 'egg', 'egg', 'ham']));
 
+            // 11s
             function removeFirstTwoEgg(foods) {
-                let result = [];
+                const result = [];
                 let count = 0
                 for (let i = 0; i < foods.length; i++) {
                     if (count < 2 && foods[i] === 'egg') {
@@ -29,37 +31,43 @@
             }
             console.log(removeFirstTwoEgg(['egg', 'apple', 'egg', 'egg', 'ham']));
 
+            // 11t
             // array.reverse() reverses the order of elements in array, it returns the reversed array and array itself is also reversed! 
-            function removeLastTwoEgg(foods) {
-                foods.reverse();
-                let result = [];
+            function removeLastTwoEgg1(foods) {
+                const reversedFoods = foods.reverse();
+                const result = [];
                 let count = 0
-                for (let i = 0; i < foods.length; i++) {
-                    if (count < 2 && foods[i] === 'egg') {
+                for (let i = 0; i < reversedFoods.length; i++) {
+                    if (count < 2 && reversedFoods[i] === 'egg') {
                         count += 1;
                         continue;
                     }
-                    result.push(foods[i])
+                    result.push(reversedFoods[i])
                 }
                 return result.reverse();
             }
-            console.log(removeLastTwoEgg(['egg', 'apple', 'egg', 'egg', 'ham']));
+            const foods1 = ['egg', 'apple', 'egg', 'egg', 'ham'];
+            console.log(removeLastTwoEgg1(foods1));
+            console.log(foods1);
 
+            // 11u
             function removeLastTwoEgg2(foods) {
-                const foods2 = foods.slice();
-                foods2.reverse();
-                let result = [];
+                const foodsCopy = foods.slice();
+                const reversedFoods = foodsCopy.reverse();
+                const result = [];
                 let count = 0
-                for (let i = 0; i < foods2.length; i++) {
-                    if (count < 2 && foods2[i] === 'egg') {
+                for (let i = 0; i < reversedFoods.length; i++) {
+                    if (count < 2 && reversedFoods[i] === 'egg') {
                         count += 1;
                         continue;
                     }
-                    result.push(foods2[i])
+                    result.push(reversedFoods[i])
                 }
                 return result.reverse();
             }
-            console.log(removeLastTwoEgg(['egg', 'apple', 'egg', 'egg', 'ham']));
+            const foods2 = ['egg', 'apple', 'egg', 'egg', 'ham'];
+            console.log(removeLastTwoEgg2(foods2));
+            console.log(foods2);
         </script>
     </body>
 </html>
