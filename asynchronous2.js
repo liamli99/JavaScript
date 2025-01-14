@@ -20,6 +20,7 @@ const guess = (num) => {
         if (num < 10) {
             resolve('Success');
         } else {
+            // Note that `throw new Error('Error')` is the same as `reject(new Error('Error'))`!!!
             reject('Error');
         }
     })
