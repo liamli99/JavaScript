@@ -11,7 +11,7 @@
 - JS is giving instructions to the computer. e.g.: 
 (1) `alert('hello');`: Display a message in a pop-up window
 (2) Math
-(3) `document.body.innerHTML = 'hello';`: Modify the webpage (see DOM for more details)
+(3) `document.body.innerHTML = 'hello';`: Modify the web page (see DOM for more details)
 (4) `typeof 'hello'`: Return type of a value
 (5) `console.log('hello')`: Output a message to console
 
@@ -502,7 +502,7 @@ const object = {
 
 
 ## DOM (Document Object Model)
-DOM combines JavaScript and HTML together! It gives JavaScript control of webpage!
+The Document Object Model (DOM) represents the web page as a tree of objects, which enables JavaScript to change the structure, style, and content!
 
 1. `document.title`, get or change the page's title, its type is String!
 
@@ -514,20 +514,20 @@ DOM combines JavaScript and HTML together! It gives JavaScript control of webpag
 
 5. If the tag is `<input>`, then there is only one tag since there is no `</input>`, we can use `document.querySelector('input').value` to get the input value, its type is String! We can use `Number(...)` to convert a string to a number and `String(...)` to convert a number to a string!   
 
-**The document object represents the webpage, while the window object represents the whole browser!** e.g. window.document, window.console, window.alert, but we don't have to type 'window.'!   
+**The document object represents the web page, while the window object represents the whole browser!** e.g. window.document, window.console, window.alert, but we don't have to type 'window.'!   
 
 
 
 ## CSS + JavaScript
 The above DOM tells us how to change the HTML using JavaScript, but how to change the CSS?
 
-(1) Create a new CSS style **below** the old CSS style, only include the property-value that you want to overwrite the old CSS style!
+1. Create a new CSS style **below** the old CSS style, only include the property-value that you want to overwrite the old CSS style!
 
-(2) Check if an element contains the new CSS style: `.classList.contains('newClassName')`, e.g. `document.querySelector('button').classList.contains('newClassName')`
+2. Check if an element contains the new CSS style: `.classList.contains('newClassName')`, e.g. `document.querySelector('button').classList.contains('newClassName')`
 
-(3) Add the new CSS style: `.classList.add('newClassName')`, the element has a new CSS style which overwrites the old CSS style! Note that adding duplicate class will only result in one class since 'add' doesn't allow duplication!
+3. Add the new CSS style: `.classList.add('newClassName')`, the element has a new CSS style which overwrites the old CSS style! Note that adding duplicate class will only result in one class since 'add' doesn't allow duplication!
 
-(4) Remove the new CSS style: `.classList.remove('newClassName')`, the element returns to the old CSS style! Note that if we want to remove a class, we don't have to first check if this class exists and then remove it! Because 'remove' removes a class if it exists and does nothing if it doesn't exist!
+4. Remove the new CSS style: `.classList.remove('newClassName')`, the element returns to the old CSS style! Note that if we want to remove a class, we don't have to first check if this class exists and then remove it! Because 'remove' removes a class if it exists and does nothing if it doesn't exist!
 
 
 
@@ -692,7 +692,7 @@ See asynchronous.js!
 ## Object Oriented Programming
 Normally we use Procedual Programming to organize the code into functions, this is a top-down approach. However, we can also use Object Oriented Programming to organize the code into objects, this is a bottom-up approach! 
 
-We can use OOP by grouping variables as properties and functions as shorthand methods into an object!
+We can use OOP by grouping variables as properties (attributes) and functions as shorthand methods into an object!
 
 **`this`**
 The `this` keyword refers to the context where a piece of code is supposed to run. Most typically, it is used in object methods, where `this` refers to the object!
