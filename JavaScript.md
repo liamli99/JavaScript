@@ -623,16 +623,16 @@ Note that `continue` in while loop can skip the increment step, so we also have 
   3. Import functions or variables 
   A module is just a piece of code in a file that can be used in other files. When developing a big project, it is very useful to divide the code into modules instead of combining all the code in one single file!   
    
-- 
-  1. Named Exports (A module can have multiple named exports):
-module.js: `export const name = 'liam; export function func(name) {...}`
-app.js: `import { name, func } from './module.js'`, name inside {} has to be the same name in module.js!
+- Export and Import
+  1. Default Exports (A module can have at most one default export):
+  module.js: `export default module`   
+  app.js: `import anyName from './module.js'`, name after 'import' can be any name you want!
+  
+  2. Named Exports (A module can have multiple named exports):
+  module.js: `export const name = 'liam; export function func(name) {...}`   
+  app.js: `import { name, func } from './module.js'`, name inside {} has to be the same name in module.js!
 
-(2) Default Exports (A module can only have one default export):
-module.js: `export default module`
-app.js: `import anyName from './module.js'`, name after 'import' can be any name you want!
-
-Note that Modules only work with HTTP(s) protocol, so that we should open the HTML using Live Server! We shouldn't directly open the HTML with web browser! 
+  Note that Modules only work with HTTP(s) protocol, so that we should open the HTML using Live Server! We shouldn't directly open the HTML with web browser! 
 
 
 
@@ -646,7 +646,7 @@ See their documentation for more datails!
 
 
 ## Asynchronous Programming
-1. Asynchronous vs. Synchronous
+- Asynchronous vs. Synchronous
 (1) Synchronous code: will wait for a line to finish before going to the next line, most codes we write are synchromous so that they run one by one!
 
 (2) Asynchronous code: won't wait for a line to finish before going to the next line, e.g.
@@ -679,11 +679,11 @@ function autoPlay() {
 }
 ```
 
-2. Promise
+- Promise
 https://www.runoob.com/js/js-promise.html
 https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Using_promises
 
-3. Async/Await
+- Async/Await
 
 See asynchronous.js!
 
@@ -766,3 +766,4 @@ class Child extends Parent {
 
 TODO:
 lesson 12 exercise; lesson 13l - 13m; lesson 14g - 14n
+Asynchronous Programming, Object Oriented Programming
