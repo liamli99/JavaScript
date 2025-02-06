@@ -47,7 +47,7 @@
 
 (2) Double quote "", useful when there exists single quote inside the string, e.g. "I'm OK"! If we still want to include single quote inside the single quote string, we can use escape character \', e.g. 'I\'m OK'!    
 
-(3) Backticks ``, also called template string!!!    
+(3) Backticks ``, also called template string/literal!!!    
 
 - Template string (`...`) has two features: 
 (1) Interpolation: Insert value directly into a string using `${}`!!! e.g. `Items (${1 + 1})`, this is cleaner than concatenation 'Items (' + (1 + 1) + ')'!   
@@ -720,6 +720,19 @@ class Child extends Parent {
 }
 ```
 
+
+
+## ES6
+1. `let` and `const`
+2. Arrow functions
+3. Default parameter
+4. Rest parameter and Spread operator `...`
+5. Template string/literal
+6. Object literal
+7. Destructuring assignment
+8. Module
+9. Class
+10. Promise
 
 
 
